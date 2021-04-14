@@ -1,0 +1,122 @@
+// 自动配置一些通用
+
+
+// === 统一生成各个子项目的 BuildType, 就不用每个都手动写 ===
+def customBuildTypes = [
+]
+
+println('rootName:'+project.name)
+// 自动注入arouter classpath
+project.buildscript.dependencies{
+    add("classpath",rootProject.arouter_path)
+}
+
+allprojects {
+
+    afterEvaluate { project ->
+
+        if (project.hasProperty("android")
+                && project != rootProject) {
+            println "Auto Configure project(${project.name})"
+
+            def buildFile = new File(project.projectDir, "build.gradle")
+            if (!buildFile.exists()) {
+                println "zproject(${project.name}) maybe only a parent dir. ignore it"
+                return
+            }
+            def hasARouterPlug = project.plugins.hasPlugin("com.alibaba.arouter")
+            def hasApplication = project.plugins.hasPlugin("com.android.application")
+            def hasKotlinKapt = project.plugins.hasPlugin("kotlin-kapt")
+
+            if (hasApplication && !hasARouterPlug) {
+                project.pluginManager.apply("com.alibaba.arouter")
+            }
+            if (!hasKotlinKapt) {
+                project.pluginManager.apply("kotlin-kapt")
+            }
+            // java8 support
+            if (project.android.compileOptions != null) {
+                project.android.compileOptions.sourceCompatibility = JavaVersion.VERSION_1_8
+                project.android.compileOptions.targetCompatibility = JavaVersion.VERSION_1_8
+            }
+
+            if (project.android.hasProperty("kotlinOptions")) {
+                println "apply kotlin Java1.8 on ${project.name}"
+                project.android.kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
+            }
+
+            if (project.android.hasProperty("buildFeatures")) {
+                if (project.hasProperty("ignoreDatabinding") && project.ignoreDatabinding) {
+                    println "ignore viewBinding"
+                } else {
+                    println "apply buildFeatures and viewBinding"
+                    project.android.buildFeatures.dataBinding = true
+                }
+            }
+            // project.android.viewBinding.enabled = true
+
+            customBuildTypes.each { buildItem ->
+                def bt = project.android.buildTypes.findByName(buildItem)
+                if (bt == null) {
+                    bt = project.android.buildTypes.create(buildItem)
+                    bt.initWith(project.android.buildTypes.release)
+                    bt.proguardFiles = project.android.buildTypes.release.proguardFiles
+                    println "Create Build type '${buildItem}' in project ${project.name}"
+                }
+            }
+
+            // add buildConfigField
+            project.android.buildTypes.each { bt ->
+                // addBuildConfigs(bt)
+            }
+
+            def useApt = project.hasProperty("kapt")
+            if (useApt) {
+                println "Configure kapt"
+                project.kapt.correctErrorTypes = true
+            }
+
+            project.android.defaultConfig.multiDexEnabled = true
+            // 添加 通用依赖
+            project.android.defaultConfig.testInstrumentationRunner = rootProject.testRunner
+            project.android.testOptions.unitTests.includeAndroidResources = true
+
+            def deps = project.dependencies
+            //
+            // unit test
+            deps.add("testImplementation", rootProject.junit)
+            deps.add("testImplementation", rootProject.hamcrest)
+            deps.add("androidTestImplementation", rootProject.junitx)
+            deps.add("androidTestImplementation", rootProject.espressox)
+
+            deps.add("implementation", rootProject.constraint)
+            deps.add("implementation", rootProject.desgin)
+            deps.add("implementation", rootProject.arouter)
+            deps.add("implementation", rootProject.appCompt)
+            deps.add("implementation", rootProject.fragment_kt)
+            deps.add("implementation", rootProject.lifecycle)
+            deps.add("implementation", rootProject.core_kt)
+            // aRouter
+            deps.add("implementation", rootProject.arouter)
+            if (useApt) {
+                println "enable aRouter by kapt"
+                project.kapt {
+                    arguments {
+                        arg("AROUTER_MODULE_NAME", project.getName())
+                    }
+                }
+
+                deps.add("kapt", rootProject.arouter_apt)
+            } else {
+                println "enable aRouter by apt"
+                project.android.defaultConfig.javaCompileOptions.annotationProcessorOptions {
+                    arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                }
+
+                deps.add("annotationProcessor", rootProject.arouter_apt)
+            }
+            //
+        }
+    }
+}
+
