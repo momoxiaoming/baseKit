@@ -37,6 +37,8 @@ ext {
     roomVersion = '2.2.5'
     workVersion = '2.4.0'
     preferenceVersion = "1.1.1"
+    baseQuickAdapterVersion="3.0.4"
+
 
     multiDex = 'androidx.multidex:multidex:2.0.1'
     annotation = "androidx.annotation:annotation:1.1.0"
@@ -158,4 +160,7 @@ ext {
     mmkvStatic = 'com.tencent:mmkv-static:1.2.4'
     mmkvShare = 'com.tencent:mmkv:1.2.4'
     mmkv = mmkvStatic
+
+    baseQuickAdapter="com.github.CymChad:BaseRecyclerViewAdapterHelper:$baseQuickAdapterVersion"
+
 }

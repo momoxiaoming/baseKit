@@ -39,4 +39,6 @@ dependencies {
     }
     api rootProject.retrofit2_gson
     api rootProject.retrofit2_rxjava3
+    api rootProject.baseQuickAdapter
+
 }
