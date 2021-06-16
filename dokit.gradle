@@ -1,0 +1,43 @@
+/* 滴滴测试框架自动导入脚本,
+ 1 请在根目录下build.gradle中使用此脚本
+ 2 在application的onCreate中初始化
+  com.didichuxing.doraemonkit.DoKit.Builder(this)
+           .productId("testId")
+            .build()
+            */
+
+
+
+
+
+// 自动注入doraemonkit classpath
+project.buildscript.dependencies{
+    add("classpath",rootProject.doraemonkit_path)
+}
+allprojects {
+
+    afterEvaluate { project ->
+        if (project.hasProperty("android")
+                && project != rootProject&&project.name=="app") {
+            def buildFile = new File(project.projectDir, "build.gradle")
+            if (!buildFile.exists()) {
+                println "zproject(${project.name}) maybe only a parent dir. ignore it"
+                return
+            }
+            def hasARouterPlug = project.plugins.hasPlugin(rootProject.doraemonkit_plugin)
+            def hasApplication = project.plugins.hasPlugin("com.android.application")
+
+            if (hasApplication && !hasARouterPlug) {
+                project.pluginManager.apply(rootProject.doraemonkit_plugin)
+            }
+
+            def deps = project.dependencies
+            println("导入doraemonkit模块")
+            // unit test
+            deps.add("debugImplementation", rootProject.doraemonkit)
+            deps.add("releaseImplementation", rootProject.doraemonkit_noop)
+
+        }
+    }
+}
+

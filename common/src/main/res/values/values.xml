@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="GodView">
+        <!--默认的背景-->
+        <attr format="color" name="godBackgroundColor"/>
+        <!--选中时的背景-->
+        <attr format="color" name="godSelBackgroundColor"/>
+        <!--取消选中时的背景-->
+        <attr format="color" name="godNorBackgroundColor"/>
+
+        <!-- Corner radius for GodView. -->
+        <attr format="dimension" name="godCornerRadius"/>
+        <attr format="dimension" name="godTopAndLeftCornerRadius"/>
+        <attr format="dimension" name="godTopAndRightCornerRadius"/>
+        <attr format="dimension" name="godBottomAndRightCornerRadius"/>
+        <attr format="dimension" name="godBottomAndLeftCornerRadius"/>
+        <!-- Elevation for CardView. -->
+        <attr format="dimension" name="godElevation"/>
+        <!-- Maximum Elevation for CardView. -->
+        <attr format="dimension" name="godMaxElevation"/>
+        <!-- Add padding in API v21+ as well to have the same measurements with previous versions. -->
+        <attr format="boolean" name="cardUseCompatPadding"/>
+        <!-- Add padding to CardView on v20 and before to prevent intersections between the Card content and rounded corners. -->
+        <attr format="boolean" name="cardPreventCornerOverlap"/>
+        <!-- Inner padding between the edges of the Card and children of the GodView. -->
+        <attr format="dimension" name="contentPadding"/>
+        <!-- Inner padding between the left edge of the Card and children of the GodView. -->
+        <attr format="dimension" name="contentPaddingLeft"/>
+        <!-- Inner padding between the right edge of the Card and children of the GodView. -->
+        <attr format="dimension" name="contentPaddingRight"/>
+        <!-- Inner padding between the top edge of the Card and children of the GodView. -->
+        <attr format="dimension" name="contentPaddingTop"/>
+        <!-- Inner padding between the bottom edge of the Card and children of the GodView. -->
+        <attr format="dimension" name="contentPaddingBottom"/>
+        <attr name="android:minWidth"/>
+        <attr name="android:minHeight"/>
+    </declare-styleable>
+
+</resources>

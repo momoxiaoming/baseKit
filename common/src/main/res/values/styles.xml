@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SpeedCircle">
+        <!--圆环的宽度-->
+        <attr name="circleWidth" format="dimension" />
+        <!--内圆的颜色-->
+        <attr name="bgCircleColor" format="color" />
+        <!--圆环的颜色-->
+        <attr name="circleColor" format="color" />
+        <!--圆环阴影颜色-->
+        <attr name="ringColor" format="color" />
+        <!--圆环一周的时间-->
+        <attr name="maxDuration" format="integer" />
+        <!--当前时间-->
+        <attr name="currentDuration" format="integer" />
+        <!--粒子效果的图片大小-->
+        <attr name="particleImgWidth" format="dimension" />
+    </declare-styleable>
+
+</resources>

@@ -9,7 +9,7 @@ ext {
             versionName      : "1.0.0",
     ]
 
-    kotlin_version = "1.4.21"
+    kotlin_version = "1.4.30"
 
     // unit tests
     junitVersion = '4.12'
@@ -37,7 +37,7 @@ ext {
     roomVersion = '2.2.5'
     workVersion = '2.4.0'
     preferenceVersion = "1.1.1"
-    baseQuickAdapterVersion="3.0.4"
+    baseQuickAdapterVersion = "3.0.4"
 
 
     multiDex = 'androidx.multidex:multidex:2.0.1'
@@ -57,7 +57,7 @@ ext {
     desgin = "com.google.android.material:material:$materialVersion"
     cardview = "androidx.cardview:cardview:1.0.0"
     flexlayout = "com.google.android:flexbox:0.3.2"
-    viewpager2= "androidx.viewpager2:viewpager2:1.0.0"
+    viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
     swiperefresh = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     preference = "androidx.preference:preference:$preferenceVersion"
     preferenceKt = "androidx.preference:preference-kt:$preferenceVersion"
@@ -161,6 +161,12 @@ ext {
     mmkvShare = 'com.tencent:mmkv:1.2.4'
     mmkv = mmkvStatic
 
-    baseQuickAdapter="com.github.CymChad:BaseRecyclerViewAdapterHelper:$baseQuickAdapterVersion"
+    baseQuickAdapter = "com.github.CymChad:BaseRecyclerViewAdapterHelper:$baseQuickAdapterVersion"
 
+    //滴滴性能测试框架
+    doraemonkitVersion='3.4.0-alpha02'
+    doraemonkit = "io.github.didi.dokit:dokitx:$doraemonkitVersion"  //debugImplementation 添加
+    doraemonkit_noop = "io.github.didi.dokit:dokitx-no-op:$doraemonkitVersion" // releaseImplementation  添加
+    doraemonkit_path = "io.github.didi.dokit:dokitx-plugin:$doraemonkitVersion" // classpath  添加
+    doraemonkit_plugin = "com.didi.dokit" // plugin name
 }
