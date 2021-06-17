@@ -35,6 +35,7 @@ abstract class DataBindingFragment<T : ViewDataBinding, VM : AbsViewModel> : Bas
      * 注册一些
      */
     abstract fun initObserver()
+
     override fun onCreateRootView(inflater: LayoutInflater, container: ViewGroup?): View? {
         mBinding=DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
         mBinding.lifecycleOwner = viewLifecycleOwner

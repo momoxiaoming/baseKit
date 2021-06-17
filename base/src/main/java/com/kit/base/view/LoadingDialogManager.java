@@ -1,4 +1,4 @@
-package com.mm.kit.common.view;
+package com.kit.base.view;
 
 import android.app.Activity;
 import android.app.AlertDialog;

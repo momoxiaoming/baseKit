@@ -38,8 +38,9 @@ ext {
     workVersion = '2.4.0'
     preferenceVersion = "1.1.1"
     baseQuickAdapterVersion = "3.0.4"
+    actktxVersion = '1.2.3'
 
-
+    activity_ktx="androidx.activity:activity-ktx:$actktxVersion"
     multiDex = 'androidx.multidex:multidex:2.0.1'
     annotation = "androidx.annotation:annotation:1.1.0"
     appCompt = "androidx.appcompat:appcompat:$supportXVersion"
@@ -163,10 +164,5 @@ ext {
 
     baseQuickAdapter = "com.github.CymChad:BaseRecyclerViewAdapterHelper:$baseQuickAdapterVersion"
 
-    //滴滴性能测试框架
-    doraemonkitVersion='3.4.0-alpha02'
-    doraemonkit = "io.github.didi.dokit:dokitx:$doraemonkitVersion"  //debugImplementation 添加
-    doraemonkit_noop = "io.github.didi.dokit:dokitx-no-op:$doraemonkitVersion" // releaseImplementation  添加
-    doraemonkit_path = "io.github.didi.dokit:dokitx-plugin:$doraemonkitVersion" // classpath  添加
-    doraemonkit_plugin = "com.didi.dokit" // plugin name
+
 }

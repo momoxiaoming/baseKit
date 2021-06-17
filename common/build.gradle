@@ -31,6 +31,8 @@ android {
 
 dependencies {
 
+    api rootProject.appCompt
+
     api rootProject.gson
     api rootProject.okhttp3
     api rootProject.okhttp3_log
@@ -39,6 +41,10 @@ dependencies {
     }
     api rootProject.retrofit2_gson
     api rootProject.retrofit2_rxjava3
-    api rootProject.baseQuickAdapter
+
+    api rootProject.multiDex
+
+    api rootProject.mars_xlog  //腾讯xlog
+
 
 }

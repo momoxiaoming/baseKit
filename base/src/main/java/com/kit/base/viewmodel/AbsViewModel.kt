@@ -20,4 +20,16 @@ abstract class AbsViewModel : ViewModel() {
      * 是否显示加载窗
      */
     val loadingDialogState = MutableLiveData<Boolean>()
+
+//    val scope by lazy {
+//        viewModelScope
+//    }
+//
+//    fun showLoading(msg:String){
+//        mLoadingDialog.value= LoadingItem(true,msg)
+//    }
+//
+//    fun hideLoading(){
+//        mLoadingDialog.value= LoadingItem(false)
+//    }
 }

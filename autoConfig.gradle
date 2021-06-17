@@ -88,10 +88,12 @@ allprojects {
             deps.add("androidTestImplementation", rootProject.junitx)
             deps.add("androidTestImplementation", rootProject.espressox)
 
+
             deps.add("implementation", rootProject.constraint)
             deps.add("implementation", rootProject.desgin)
             deps.add("implementation", rootProject.arouter)
             deps.add("implementation", rootProject.appCompt)
+            deps.add("implementation", rootProject.fragment_kt)
             deps.add("implementation", rootProject.fragment_kt)
             deps.add("implementation", rootProject.lifecycle)
             deps.add("implementation", rootProject.core_kt)

@@ -6,7 +6,14 @@
             .build()
             */
 
-
+ext{
+    //滴滴性能测试框架
+    doraemonkitVersion='3.4.0-alpha02'
+    doraemonkit = "io.github.didi.dokit:dokitx:$doraemonkitVersion"  //debugImplementation 添加
+    doraemonkit_noop = "io.github.didi.dokit:dokitx-no-op:$doraemonkitVersion" // releaseImplementation  添加
+    doraemonkit_path = "io.github.didi.dokit:dokitx-plugin:$doraemonkitVersion" // classpath  添加
+    doraemonkit_plugin = "com.didi.dokit" // plugin name
+}
 
 
 

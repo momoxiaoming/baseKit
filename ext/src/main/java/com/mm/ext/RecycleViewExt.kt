@@ -1,12 +1,10 @@
 package com.mm.ext
 
 import android.view.View.OVER_SCROLL_NEVER
-import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mm.kit.common.drawable.DividerDrawable
 
 
 /**

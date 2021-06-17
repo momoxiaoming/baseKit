@@ -10,12 +10,11 @@ import androidx.lifecycle.coroutineScope
  * @author mmxm
  * @date 2021/4/14 17:10
  */
-abstract class BaseActivity : AppCompatActivity() {
+ abstract class BaseActivity : AppCompatActivity() {
 
     val scope by lazy {
         lifecycle.coroutineScope
     }
-
     var willSetLayout=true
 
 

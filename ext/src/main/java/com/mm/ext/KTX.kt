@@ -4,6 +4,7 @@ import androidx.activity.ComponentActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.coroutineScope
+import com.alibaba.android.arouter.launcher.ARouter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.flow.Flow
@@ -35,3 +36,4 @@ inline fun <T> Flow<T>.launch(
         this@launch.collect(action)
     }
 }
+

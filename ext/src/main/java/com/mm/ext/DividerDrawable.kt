@@ -1,4 +1,4 @@
-package com.mm.kit.common.drawable
+package com.mm.ext
 
 import android.graphics.*
 import android.graphics.drawable.Drawable
