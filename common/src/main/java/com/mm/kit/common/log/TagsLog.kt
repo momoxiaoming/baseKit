@@ -1,4 +1,4 @@
-package com.dn.vi.app.cm.log
+package com.mm.kit.common.log
 
 import java.lang.reflect.InvocationHandler
 import java.lang.reflect.Method

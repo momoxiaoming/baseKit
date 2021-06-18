@@ -1,4 +1,4 @@
-package com.dn.vi.app.cm.log
+package com.mm.kit.common.log
 
 import android.content.Context
 import com.tencent.mars.xlog.Log

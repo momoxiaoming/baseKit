@@ -14,7 +14,7 @@
  *
  * Created by holmes on 2020/5/19.
  **/
-package com.dn.vi.app.cm.log
+package com.mm.kit.common.log
 
 
 /**

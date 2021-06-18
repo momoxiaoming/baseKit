@@ -105,7 +105,7 @@ class GodView @JvmOverloads constructor(
                     changBgColor(norBgColor)
                 }
             }
-            true
+            false
         }
     }
 

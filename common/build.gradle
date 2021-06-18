@@ -30,6 +30,7 @@ android {
 }
 
 dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
 
     api rootProject.appCompt
 
@@ -46,5 +47,12 @@ dependencies {
 
     api rootProject.mars_xlog  //腾讯xlog
 
+    api rootProject.rxjava
+    api rootProject.rxandroid
+    api (rootProject.rxbinding) {
+        exclude group: 'io.reactivex.rxjava2'
+    }
+    api rootProject.rxkotlin
+    implementation files('libs\\gson-quick-1.0.2.jar')
 
 }
