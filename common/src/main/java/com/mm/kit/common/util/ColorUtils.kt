@@ -1,4 +1,4 @@
-package com.mm.kit.common.color
+package com.mm.kit.common.util
 
 import android.graphics.Color
 import java.util.*
