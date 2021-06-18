@@ -2,7 +2,7 @@ package com.kit.base.activity
 
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.kit.base.viewmodel.AbsViewModel
+import com.kit.base.viewmodel.BaseViewModel
 
 /**
  * DataBindingActivity
@@ -10,14 +10,14 @@ import com.kit.base.viewmodel.AbsViewModel
  * @author mmxm
  * @date 2021/4/14 17:19
  */
-abstract class DataBindingActivity<T : ViewDataBinding, VM : AbsViewModel> : BaseActivity() {
+abstract class DataBindingActivity<T : ViewDataBinding, VM : BaseViewModel> : BaseActivity() {
 
     lateinit var mBinding: T
 
     /**
      * ViewModel
      */
-    val vm: VM by lazy { getViewModel() }
+    val mModel: VM by lazy { getViewModel() }
 
     /**
      * 资源layout
@@ -31,28 +31,21 @@ abstract class DataBindingActivity<T : ViewDataBinding, VM : AbsViewModel> : Bas
      */
     abstract fun getViewModel(): VM
 
+
+    abstract fun initView()
+    abstract fun initViewData()
     /**
-     * 注册一些
+     * 注册一些liveData
      */
     open fun initObserver() {
-        vm.isPageFinish.observe(this) {
-            if (it) {
-                goBack()
-            }
-        }
-        vm.loadingDialogState.observe(this) {
-            if (it) {
-                //显示加载窗
-            }else{
-                //隐藏加载创
-            }
-        }
     }
 
     override fun initLayout() {
         mBinding = DataBindingUtil.setContentView(this, getLayoutId())
         mBinding.lifecycleOwner = this
         initObserver()
+        initView()
+        initViewData()
     }
 
 

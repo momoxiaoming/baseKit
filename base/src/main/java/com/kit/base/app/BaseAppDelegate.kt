@@ -12,7 +12,10 @@ import com.mm.kit.common.process.ProcessUtils
  */
 open class BaseAppDelegate(var app: Application) {
     open fun attachBaseContext(base: Context?) {
+        initLog()
+    }
 
+    open fun initLog() {
     }
 
     open fun onCreate() {

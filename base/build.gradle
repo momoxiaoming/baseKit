@@ -35,6 +35,10 @@ dependencies {
     api project(path: ':baseKit:common')
     api project(path: ':baseKit:ext')
 
+    api rootProject.ankoCommons
+    api rootProject.ankoSdk
+
+    api rootProject.constraint
 
     api rootProject.baseQuickAdapter
     api rootProject.recycleview
