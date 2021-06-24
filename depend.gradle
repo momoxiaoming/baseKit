@@ -164,5 +164,9 @@ ext {
 
     baseQuickAdapter = "com.github.CymChad:BaseRecyclerViewAdapterHelper:$baseQuickAdapterVersion"
 
+    smartRefresh="2.0.3"
+    smartRefreshLayout = "com.scwang.smart:refresh-layout-kernel:$smartRefresh"
+    smartRefreshHeader = "com.scwang.smart:refresh-header-classics:$smartRefresh" //经典刷新头
+    smartRefreshFooter = "com.scwang.smart:refresh-footer-classics:$smartRefresh" //经典加载
 
 }
