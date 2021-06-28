@@ -1,4 +1,4 @@
-package com.mm.kit.common.process
+package com.mm.kit.common.util
 
 import android.os.Process
 import okio.buffer

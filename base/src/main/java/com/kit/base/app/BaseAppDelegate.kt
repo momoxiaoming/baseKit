@@ -2,7 +2,7 @@ package com.kit.base.app
 
 import android.app.Application
 import android.content.Context
-import com.mm.kit.common.process.ProcessUtils
+import com.mm.kit.common.util.ProcessUtils
 
 /**
  * application生命周期代理
