@@ -201,3 +201,20 @@ object NetworkUtils {
         return ""
     }
 }
+
+/**
+ * 判断是否有网络连接
+ */
+fun Context?.isNetConnected(): Boolean {
+    if (this != null) {
+        val mConnectivityManager = getSystemService(
+            Context.CONNECTIVITY_SERVICE
+        ) as ConnectivityManager
+        val mNetworkInfo = mConnectivityManager.activeNetworkInfo
+        if (mNetworkInfo != null) {
+            @Suppress("DEPRECATION")
+            return mNetworkInfo.isAvailable
+        }
+    }
+    return false
+}

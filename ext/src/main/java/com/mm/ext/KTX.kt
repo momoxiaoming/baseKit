@@ -1,6 +1,13 @@
 package com.mm.ext
 
+import android.content.Context
+import android.os.Handler
+import android.os.Looper
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.activity.ComponentActivity
+import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
@@ -24,11 +31,13 @@ import kotlin.coroutines.EmptyCoroutineContext
  */
 
 
-fun <T> ComponentActivity.launch(block: (flow: Flow<T>) -> Unit) = this.lifecycle.coroutineScope.launch() {
-    block(flow {
+fun <T> ComponentActivity.launch(block: (flow: Flow<T>) -> Unit) =
+    this.lifecycle.coroutineScope.launch() {
+        block(flow {
 
-    })
-}
+        })
+    }
+
 inline fun <T> Flow<T>.launch(
     scope: CoroutineScope,
     context: CoroutineContext = EmptyCoroutineContext,
@@ -70,4 +79,20 @@ inline fun <T> Boolean.IE(yesBlock: (() -> T), noBlock: (() -> T)): T {
     } else {
         noBlock.invoke()
     }
+}
+
+/**
+ * 主线程运行代码块
+ * @param block Function0<Unit>
+ */
+inline fun runMain(crossinline block: () -> Unit) {
+    if (Looper.myLooper() == Looper.getMainLooper()) {
+        block()
+    } else {
+        Handler(Looper.getMainLooper()).post { block() }
+    }
+}
+
+fun Context.inflate(@LayoutRes resource: Int, root: ViewGroup, attachToRoot: Boolean): View {
+    return LayoutInflater.from(this).inflate(resource, root, attachToRoot)
 }
