@@ -46,6 +46,7 @@ dependencies {
     api rootProject.viewpager2
     api rootProject.swiperefresh
     api rootProject.activity_ktx
+    api rootProject.multitype
 
     implementation(rootProject.room)
     kapt(rootProject.room_apt)

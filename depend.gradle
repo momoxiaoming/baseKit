@@ -169,4 +169,5 @@ ext {
     smartRefreshHeader = "com.scwang.smart:refresh-header-classics:$smartRefresh" //经典刷新头
     smartRefreshFooter = "com.scwang.smart:refresh-footer-classics:$smartRefresh" //经典加载
 
+    multitype = "com.drakeet.multitype:multitype:4.3.0"
 }

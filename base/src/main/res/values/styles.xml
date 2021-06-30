@@ -11,4 +11,6 @@
         <item name="titleTextColor">@color/white</item>
         <item name="subtitleTextColor">@color/white</item>
     </style>
+
+
 </resources>
